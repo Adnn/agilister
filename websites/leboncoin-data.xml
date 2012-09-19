@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<website>
+    <!--
+         //*[@id='rS'] : selling
+         //*[@id='rK'] : buying
+    -->
+    <leboncoin_offer_type>//*[@id='rS']</leboncoin_offer_type>
+
+</website>
+

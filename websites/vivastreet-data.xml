@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<website>
+    <!--
+         //*[@id='post_radio_offer_type_0'] : selling
+         //*[@id='post_radio_offer_type_1'] : buying
+    -->
+    <vivastreet_offer_type>//*[@id='post_radio_offer_type_0']</vivastreet_offer_type>
+
+    <!--
+         //*[@id='from_partners_yes'] : receive partner's offers 
+         //*[@id='from_partners_no'] : refuse partner's offers
+    -->
+    <vivastreet_partners>//*[@id='from_partners_no']</vivastreet_partners>
+</website>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<site-settings>
+    <url>
+        <post>http://post.vivastreet.fr</post>
+    </url>
+    <fieldmap>
+        <map xpath="//*[@name='posting_category_select']" type="select" proper="1">category</map>
+        <map xpath="//*[@name='searchGeo_text']">postcode</map>
+        <map xpath="//*[@name='individual_type']" type="select" proper="1">seller_type</map>
+        <map xpath="//*[@name='title']">title</map>
+        <map xpath="//*[@name='detail']">description</map>
+        <map type="radio">vivastreet_offer_type</map>
+        <map xpath="//*[@name='brand']">brand</map>
+        <map xpath="//*[@name='price[price]']">price</map>
+        <map type="radio">vivastreet_partners</map>
+        <map xpath="//*[@name='user_email']" proper="1">email</map>
+        <map xpath="//*[@name='user_password']" proper="1">password</map>
+        <map xpath="//*[@name='phone_nbr']">cellphone</map>
+        <!--
+        <map xpath="//*[@name='upload_data']" iframe="upload_frame">photo_front</map>
+        <map xpath="//*[@name='upload_data']" iframe="upload_frame">photo_2</map>
+        -->
+    </fieldmap>
+    <photo xpath="//*[@name='upload_data']" iframe="upload_frame" />
+    <success xpath="//h4[@class='vs-posting-confirm-header']" />
+</site-settings>

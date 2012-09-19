@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<site-settings>
+    <url>
+        <post>http://www2.leboncoin.fr/ai/form/0</post>
+    </url>
+    <precode>photoFile = browser.find_element_by_name("image0")
+photoFile.send_keys("/cygdrive/d/annonces/arc/1.JPG")
+send = browser.find_element_by_xpath('//*[@id="upload_image_base_pack"]/div[4]/input')
+send.click()</precode>
+    <fieldmap>
+        <map xpath="//*[@name='region']" type="select" proper="1">region</map>
+        <map xpath="//*[@name='dpt_code']" type="select">department-number</map>
+        <map xpath="//*[@name='zipcode']">postcode</map>
+        <map xpath="//*[@name='category']" type="select" proper="1">category</map>
+        <map xpath="//*[@name='company_ad']" type="radio" proper="1">seller_type</map>
+        <map xpath="//*[@name='type']" type="radio">leboncoin_offer_type</map>
+        <map xpath="//*[@name='name']">username</map>
+        <map xpath="//*[@name='email']" proper="1">email</map>
+        <map xpath="//*[@name='phone']">cellphone</map>
+        <map xpath="//*[@name='subject']">title</map>
+        <map xpath="//*[@name='body']">description</map>
+        <map xpath="//*[@name='price']" submit="1">price</map>
+
+        <map xpath="//*[@name='passwd']">password</map>
+        <map xpath="//*[@name='passwd_ver']" submit="1">password</map>
+    </fieldmap>
+    <photo xpath="//*[@name='image0']" submit="1"/>
+    <success xpath="//*[@id='ContainerMain']/div/div[1]/div/h2" />
+</site-settings>

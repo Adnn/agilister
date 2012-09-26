@@ -1,5 +1,7 @@
 import argparse
 
+## \brief Create an argparse.ArgumentParser instance and make it publicly available in the parser data member.
+# The argument parser is already aware of two common arguments : <i>directory</i> and <i>--websites</i>.
 class Arguments(object):
     def __init__(self, programDescription):
         self.parser = argparse.ArgumentParser(description=programDescription)

@@ -1,0 +1,38 @@
+Data DOM :
+<annonce>
+ <data-tagname1>textnode</data-tagname1>
+ ...
+ <data_tagname2><website1_name>textnode</website1_name><website2_name>textnode</website2_name></data_tagname2>
+ ...
+</annonce>
+
+A data DOM lists in text nodes actual values that will be used to fill web elements.
+The text nodes are nested inside tag pairs, whose tagname is used in the web metadata DOM to link the value to specific web elements. (i.e. this outmost tagname is the name of the datafield, and thus is used to refer to it.)
+If a value is website agnostic (generally a value linked to free text web elements), then the text node is the first child of the naming tag pair.
+If a value is website specific (usually for selects, radios, checkboxes), then the text node is nested inside an extra tag pair, whose tagname is the website for which this value will be used.
+
+
+Website metadata DOM :
+<site-settings>
+    <url>
+        <post>post_url</post>
+    </url>
+    <precode>python_code</precode>
+    <fieldmap>
+        <map xpath="xpath_to_webelement1" [type="select|radio"] [proper="1"] [submit="1"] [iframe="webelement_iframe"]>data_tagname</map>
+        ...
+    </fieldmap>
+    <photo xpath="xpath_to_photofilename_input" [submit="1"] [iframe="webelement_iframe"]/>
+    <success xpath="xpath_to_successpage_webelement" [iframe="webelement_iframe"]/>
+</site-settings>
+
+A website metadata DOM describes how a given website works, in particular how to post a new advertisement on it.
+post_url is the first webpage to point to when posting a new ad.
+python_code in <precode> will be executed once the post_url webpage is loaded, and before any element is filled with its value.
+The <fieldmap> contains all the <map> elements. Those <map> are associating a datafield (defined by its data_tagname) from the data DOM to a website element (defined by its xpath). Thus this website element will be filled with the datafield value (stored in its nested textnode). Optional attributes are :
+- type (defaulting to freetext when omitted), giving the type of the pointed web element.
+- proper, a flag raised when the pointed data value is website specific (meaning the textnode from the data DOM will be enclosed in an extra tag pair whose name is the website's name)
+- submit, a flag raised when the element should be submitted by the posting application, right after being filled and before the next element is filled.
+- iframe, giving the name of the pointed web element parent frame if it is not enclosed in the default frame.
+The <photo> element describes how to attach images to the posted advertisement. For now, it is handled as a freetext Web element, pointed by xpath, which will sequentially be sent the absolute local filepath to each photogragh. The web element can optionnaly be submitted between each filepath is sent. It can also specify an iframe.
+The <success> element gives the xpath to a web element whose presence in the page means that posting was successfull. It is usually the xpath to a congratulation text on the posting confirmation page.

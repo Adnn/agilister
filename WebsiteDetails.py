@@ -6,7 +6,8 @@ import DataElement
 
 ## \brief Abstract class to represent the different choices to fill a data element (in the data DOM) based on the type of web element it will be linked to in a given website.
 # For example if a data element is linked to a select web element, the only choices for it's values would be the nested option's values.
-class Choices(object)
+class Choices(object):
+    pass
 
 ## \brief Specialization of Choices for select web elements. 
 class WebElementChoices(Choices):
@@ -93,7 +94,10 @@ class WebsiteDetails(object):
 
     ## \return A string containing Python code that should be executed when the post url is loaded, <b>before</b> any attempt to fill web elements.
     def getPrecode(self):
-        return self._dom.firstChild.getElementsByTagName("precode").item(0).firstChild.nodeValue
+        precodeElem = self._dom.firstChild.getElementsByTagName("precode").item(0)
+        if precodeElem:
+            return precodeElem.firstChild.nodeValue
+        return None
 
     ## \return the complete <map> xml element, containing the nested <mapping> elements.
     def getMappings(self):

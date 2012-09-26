@@ -19,7 +19,7 @@ SUBMIT_ATTR = u"submit"
 XPATH = u"xpath"
 
 ELEMENT_TIMEOUT = 30
-FILL_FREEZETIME = 0.5
+FILL_FREEZETIME = 2 
 
 ## \brief Helper method to determine if an attribute is "present" in a xml element
 # It allows to emulate flags in xml elements. An attribute is said to be present if it's value is set to 1.
@@ -88,11 +88,11 @@ class WebFiller(object):
             inputElement.submit()
 
     ## \todo : delete
-    'def _submit(self, webDriver):
-        return self._webElementOperation(webDriver, self._submitOperation)'
+    #def _submit(self, webDriver):
+    #    return self._webElementOperation(webDriver, self._submitOperation)
 
-    'def _submitOperation(self, inputElement):
-        inputElement.submit()'
+    #def _submitOperation(self, inputElement):
+    #    inputElement.submit()
 
 ## \brief A WebFiller specialised for image files.
 # It was designed for Vivastreet simple "input-file" button and works with LeBonCoin thanks to the submit flag.

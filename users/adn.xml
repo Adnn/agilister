@@ -6,14 +6,13 @@
     <department-number>30</department-number>
     <email><leboncoin>commercial.dm.lbc@gmail.com</leboncoin><vivastreet>commercial.dm+vivastreet@gmail.com</vivastreet></email>
     <seller_type>
-        <vivastreet value="individual">individual</vivastreet>
+        <vivastreet>individual</vivastreet>
         <leboncoin>//*[@id='private_ad_id']</leboncoin>
     </seller_type>
     <cellphone>0638312180</cellphone>
     <homephone></homephone>
 
-    <password>
-        <vivastreet>agilistreet</vivastreet>
-        agilisting
+    <password>agilisting
+<vivastreet>agilistreet</vivastreet>
     </password>
 </user>

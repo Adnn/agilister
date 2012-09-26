@@ -3,6 +3,9 @@
     <url>
         <post>http://post.vivastreet.fr</post>
     </url>
+    <precode>select = browser.find_element_by_xpath("//*[@name='posting_category_select']")
+Select(select).select_by_value("computers_elec")
+time.sleep(DataElement.FILL_FREEZETIME)</precode>
     <fieldmap>
         <map xpath="//*[@name='posting_category_select']" type="select" proper="1">category</map>
         <map xpath="//*[@name='searchGeo_text']">postcode</map>
@@ -15,7 +18,7 @@
         <map type="radio">vivastreet_partners</map>
         <map xpath="//*[@name='user_email']" proper="1">email</map>
         <map xpath="//*[@name='user_password']" proper="1">password</map>
-        <map xpath="//*[@name='phone_nbr']">cellphone</map>
+        <map xpath="//*[@name='phone_nbr']" submit="1">cellphone</map>
         <!--
         <map xpath="//*[@name='upload_data']" iframe="upload_frame">photo_front</map>
         <map xpath="//*[@name='upload_data']" iframe="upload_frame">photo_2</map>

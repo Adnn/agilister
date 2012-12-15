@@ -25,5 +25,5 @@ time.sleep(DataElement.FILL_FREEZETIME)</precode>
         -->
     </fieldmap>
     <photo xpath="//*[@name='upload_data']" iframe="upload_frame" />
-    <success xpath="//h4[@class='vs-posting-confirm-header']" />
+    <success xpath="//h4[@class='vs-posting-confirm-header kiwii-text-align-center kiwii-font-weight-bold kiwii-font-xlarge']" />
 </site-settings>

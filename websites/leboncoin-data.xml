@@ -5,6 +5,7 @@
          //*[@id='rK'] : buying
     -->
     <leboncoin_offer_type>//*[@id='rS']</leboncoin_offer_type>
+    <leboncoin_cgv>//*[@name='accept_rule']</leboncoin_cgv>
 
 </website>
 

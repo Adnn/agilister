@@ -10,5 +10,5 @@
          //*[@id='from_partners_yes'] : receive partner's offers 
          //*[@id='from_partners_no'] : refuse partner's offers
     -->
-    <vivastreet_partners>//*[@id='from_partners_no']</vivastreet_partners>
+    <vivastreet_partners>N</vivastreet_partners>
 </website>

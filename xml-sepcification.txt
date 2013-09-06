@@ -31,8 +31,8 @@ post_url is the first webpage to point to when posting a new ad.
 python_code in <precode> will be executed once the post_url webpage is loaded, and before any element is filled with its value.
 The <fieldmap> contains all the <map> elements. Those <map> are associating a datafield (defined by its data_tagname) from the data DOM to a website element (defined by its xpath). Thus this website element will be filled with the datafield value (stored in its nested textnode). Optional attributes are :
 - type (defaulting to freetext when omitted), giving the type of the pointed web element.
-- proper, a flag raised when the pointed data value is website specific (meaning the textnode from the data DOM will be enclosed in an extra tag pair whose name is the website's name)
-- submit, a flag raised when the element should be submitted by the posting application, right after being filled and before the next element is filled.
+- proper, a flag set when the pointed data value is website specific (meaning the textnode from the data DOM will be enclosed in an extra tag pair whose name is the website's name)
+- submit, a flag set when the element should be submitted by the posting application, right after being filled and before the next element is filled.
 - iframe, giving the name of the pointed web element parent frame if it is not enclosed in the default frame.
 The <photo> element describes how to attach images to the posted advertisement. For now, it is handled as a freetext Web element, pointed by xpath, which will sequentially be sent the absolute local filepath to each photogragh. The web element can optionnaly be submitted between each filepath is sent. It can also specify an iframe.
 The <success> element gives the xpath to a web element whose presence in the page means that posting was successfull. It is usually the xpath to a congratulation text on the posting confirmation page.

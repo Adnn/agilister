@@ -1,30 +1,57 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <site-settings>
-    <url>
-        <post>http://www2.leboncoin.fr/ai/form/0</post>
-    </url>
-    <precode>photoFile = browser.find_element_by_name("image0")
-image = os.path.join(os.environ[DataElement.AGILISTER_ENVAR], DataElement.WEB_FOLDER, "lbc.jpg")
-photoFile.send_keys(image)
-send = browser.find_element_by_xpath('//*[@id="upload_image_base_pack"]/div[4]/input')
-send.click()</precode>
-    <fieldmap>
-        <map xpath="//*[@name='region']" type="select" proper="1">region</map>
-        <map xpath="//*[@name='dpt_code']" type="select">department-number</map>
-        <map xpath="//*[@name='zipcode']">postcode</map>
-        <map xpath="//*[@name='category']" type="select" proper="1">category</map>
-        <map xpath="//*[@name='company_ad']" type="radio" proper="1">seller_type</map>
-        <map xpath="//*[@name='type']" type="radio">leboncoin_offer_type</map>
-        <map xpath="//*[@name='name']">username</map>
-        <map xpath="//*[@name='email']" proper="1">email</map>
-        <map xpath="//*[@name='phone']">cellphone</map>
-        <map xpath="//*[@name='subject']">title</map>
-        <map xpath="//*[@name='body']">description</map>
-        <map xpath="//*[@name='price']" submit="1">price</map>
+    <loging url="https://compteperso.leboncoin.fr/account/index.html">
+        <handlers>
+            <fieldmap>
+                <map xpath="//*[@name='st_username']" proper="1">email</map>
+                <map xpath="//*[@name='st_passwd']" proper="1">password</map>
+             </fieldmap>
+        </handlers>
+        <success xpath="//*[@id='ContainerMain']/div/div[1]/div/h2" />
+    </loging>
+    
+    <posting url="http://www2.leboncoin.fr/ai/form/0">
+        <handlers>
+            <!--Dummy submit to "reload" the page, in order to fix what appears to be a bug in the website.
+                Replace the 'precode'.
+            -->
+            <fieldmap>
+                <map xpath="//*[@name='region']" type="select" proper="1" submit="1">region</map>
+            </fieldmap>
+            <fieldmap>
+                <map xpath="//*[@name='region']" type="select" proper="1">region</map>
+                <map xpath="//*[@name='dpt_code']" type="select">department-number</map>
+                <map xpath="//*[@name='zipcode']">postcode</map>
+                <map xpath="//*[@name='category']" type="select" proper="1">category</map>
+                <map xpath="//*[@name='company_ad']" type="radio" proper="1">seller_type</map>
+                <map xpath="//*[@name='type']" type="radio">leboncoin_offer_type</map>
+                <map xpath="//*[@name='name']">username</map>
+                <map xpath="//*[@name='email']" proper="1">email</map>
+                <map xpath="//*[@name='phone']">cellphone</map>
+                <map xpath="//*[@name='subject']">title</map>
+                
+                <!-- Vehicle specifics -->
+                <map xpath="//*[@id='regdate']" type="select">model_year</map>
+                <map xpath="//*[@id='fuel']" type="select" proper="1">fuel_category</map>
+                <map xpath="//*[@id='mileage']">mileage</map>
+                <map xpath="//*[@id='gearbox']" type="select" proper="1">gearbox</map>
+                                
+                <map xpath="//*[@name='body']">description</map>
+            </fieldmap>
+            <photo xpath="//*[@name='image0']" submit="1" max="3"/>   
+            <fieldmap>
+                <map xpath="//*[@name='price']" submit="1">price</map>
+                <map xpath="//*[@name='passwd']">password</map>
+                <map type="radio" submit="1">leboncoin_cgv</map>
+            </fieldmap>
+        </handlers>
+        <success xpath='//*[@id="headermain"]/h1[text()="Confirmation d&apos;envoi de votre annonce"]'
+                 url="http://www2.leboncoin.fr/ai/confirm_no_pay/0"/>
+    </posting>
 
-        <map xpath="//*[@name='passwd']">password</map>
-        <map xpath="//*[@name='passwd_ver']" submit="1">password</map>
-    </fieldmap>
-    <photo xpath="//*[@name='image0']" submit="1"/>
-    <success xpath="//*[@id='ContainerMain']/div/div[1]/div/h2" />
+    <test_success url="http://www2.leboncoin.fr/ai/confirm_no_pay/0">
+        <!-- Why is not that syntax working ? -->
+        <success xpath="//*[@id='headermain']/h1[text()='Confirmation d\&apos;envoi de votre annonce']"/>
+    </test_success>
+    
 </site-settings>

@@ -22,7 +22,7 @@ def post_ad_on_websites(ad_file, user_file, websites, action, sleep_time=[0]):
     map(lambda website: post_ad(ad_file, user_file, website, action), websites)
     stop = time.time()
 
-    sleep_time[0] = NEXT_POST_COOLDOWN - (stop-start)
+    sleep_time[0] = max(0, NEXT_POST_COOLDOWN - (stop-start))
 
 
 def post_ad(ad_file, user_file, website, action):

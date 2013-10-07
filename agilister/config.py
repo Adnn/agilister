@@ -25,7 +25,7 @@ def agilister_path():
         try:
             _AGILISTER_PATH = os.environ[AGILISTER_ENVAR]
         except KeyError:
-            _AGILISTER_PATH = os.path.dirname(__file__)
+            _AGILISTER_PATH = os.path.dirname(os.path.dirname(__file__))
     return _AGILISTER_PATH
 
 

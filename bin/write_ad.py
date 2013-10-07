@@ -1,3 +1,5 @@
+#!/bin/python
+
 from agilister import fillers, config, website, arguments
 
 from xml.dom.minidom import parse
@@ -6,6 +8,10 @@ import sys
 
 
 def get_ads_files(directory):
+    single_ad = os.path.join(directory, config.ADVERTISEMENT_FILE)
+    if os.path.exists(single_ad):
+        return [single_ad]
+        
     return [ad_file for ad_file in [os.path.join(directory, subdir, config.ADVERTISEMENT_FILE)
                                     for subdir in config.get_subdirs(directory)]
             if os.path.exists(ad_file)]

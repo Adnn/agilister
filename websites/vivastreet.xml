@@ -11,18 +11,31 @@
             <fieldmap>
                 <map xpath="//*[@name='posting_category_select']" type="select" proper="1">category</map>
                 <map xpath="//*[@name='searchGeo_text']">postcode</map>
-                <map xpath="//*[@name='individual_type']" type="select" proper="1">seller_type</map>
                 <map xpath="//*[@name='title']">title</map>
                 <map xpath="//*[@name='detail']">description</map>
                 <map type="radio">vivastreet_offer_type</map>
                 <map xpath="//*[@name='brand']">brand</map>
+                
+                <!-- Vehicle spares only -->
+                <!--xpath="//*[@id='posting_cat_radio_row']/td[2]/div[2]/div[1]"-->
+                <map type="radio" proper="1" >sparepart_subcat</map>
+                <!-- Vehicle only -->
+                <!--xpath="//*[@id='posting_cat_radio_row']/td[2]/div[1]/div[1]"--> 
+                <map type="radio" proper="1">vehicle_subcat</map>
+                <map xpath="//*[@name='individual_dealer']" type="select" proper="1">seller_type</map>
+                <map xpath="//*[@name='car_model']">brand</map>
+                <map xpath="//*[@id='id_year']" type="select">model_year</map>
+                <map xpath="//*[@id='id_car_energy']" type="select" proper="1">fuel_category</map>
+                <map xpath="//*[@id='id_car_mileage']">mileage</map>
+                
+                <map xpath="//*[@name='individual_type']" type="select" proper="1">seller_type</map>
                 <map xpath="//*[@name='price[price]']">price</map>
                 <map xpath="//*[@name='user_email']" proper="1">email</map>
                 <map xpath="//*[@name='user_password']" proper="1">password</map>
                 <map xpath="//*[@name='phone_nbr']">cellphone</map>
             </fieldmap>
             
-            <photo xpath="//*[@name='upload_data']" iframe="upload_frame" />
+            <photo xpath="//*[@name='upload_data']" iframe="upload_frame" max="12"/>
             
             <fieldmap>
                 <map xpath="//*[@id='from_partners_yes']" type="checkbox" submit="1">vivastreet_partners</map>    
